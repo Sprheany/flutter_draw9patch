@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_draw9patch/helper/show_alert_dialog.dart';
 import 'package:flutter_draw9patch/ui/patch_info.dart';
 import 'package:flutter_draw9patch/utils/constaints.dart';
 import 'package:flutter_draw9patch/utils/image_ext.dart';
@@ -14,6 +15,10 @@ part 'image_data_provider.g.dart';
 
 final imageFileProvider = StateProvider<XFile?>((ref) {
   return null;
+});
+
+final fileNameProvider = StateProvider<String>((ref) {
+  return "";
 });
 
 class ImageData {
@@ -36,17 +41,22 @@ class CreateImageData extends _$CreateImageData {
       return null;
     }
 
-    img.Image? image = img.decodePng(await file.readAsBytes());
+    final bytes = await file.readAsBytes();
+
+    img.Image? image = img.decodeNamedImage(file.name, bytes);
     if (image == null) {
-      return null;
+      return showAlertDialog(message: "Please select a valid image (png, jpg, webp, etc.)");
     }
-    bool is9Patch = file.name.endsWith(EXTENSION_9PATCH);
+    String fileName = file.name;
+    bool is9Patch = fileName.endsWith(EXTENSION_9PATCH);
     if (!is9Patch) {
       image = image.convertTo9Patch();
+      fileName = fileName.replaceRange(fileName.lastIndexOf("."), null, "");
     } else {
       image.ensure9Patch();
+      fileName = fileName.replaceRange(fileName.lastIndexOf(EXTENSION_9PATCH), null, "");
     }
-    image.addTextData({"name": file.name});
+    ref.read(fileNameProvider.notifier).state = fileName;
     final uiImage = await image.convertToFlutterUi();
     return ImageData(
       image: image,

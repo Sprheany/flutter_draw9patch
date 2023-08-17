@@ -2,7 +2,7 @@
 
 const String APP_TITLE = "9-Patch Editor";
 
-const int PANEL_MIN_WIDTH = 60;
+const double PANEL_MIN_WIDTH = 60;
 
 const double WINDOW_WIDTH = 1024;
 const double WINDOW_HEIGHT = 600;

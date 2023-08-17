@@ -78,8 +78,8 @@ class _ImageViewerState extends ConsumerState<ImageViewer> {
     zoomFraction = ref.watch(zoomProvider) * 0.01;
 
     return LayoutBuilder(builder: (context, constraints) {
-      width = max(constraints.minWidth, image.width * zoomFraction);
-      height = max(constraints.minHeight, image.height * zoomFraction);
+      width = max(constraints.minWidth, image.width * zoomFraction + STRETCH_MARGIN);
+      height = max(constraints.minHeight, image.height * zoomFraction + STRETCH_MARGIN);
 
       return Listener(
         onPointerDown: onPointerDown,
@@ -133,7 +133,6 @@ class _ImageViewerState extends ConsumerState<ImageViewer> {
   }
 
   void onPointerUp(event) {
-    // dev.log("onPointerUp");
     double x = imageXCoordinate(event.localPosition.dx);
     double y = imageYCoordinate(event.localPosition.dy);
 
@@ -145,7 +144,6 @@ class _ImageViewerState extends ConsumerState<ImageViewer> {
   }
 
   void onPointerMove(event) {
-    // dev.log("onPointerMove - x: ${event.localPosition.dx}, y: ${event.localPosition.dy}");
     double x = imageXCoordinate(event.localPosition.dx);
     double y = imageYCoordinate(event.localPosition.dy);
 
@@ -163,11 +161,8 @@ class _ImageViewerState extends ConsumerState<ImageViewer> {
   }
 
   void onPointerHover(event) {
-    // dev.log("onPointerHover - x: ${event.localPosition.dx}, y: ${event.localPosition.dy}");
     double x = imageXCoordinate(event.localPosition.dx);
     double y = imageYCoordinate(event.localPosition.dy);
-
-    // dev.log("onPointerHover - $x, $y");
 
     ref.read(pointXProvider.notifier).state = max(0, min(x.toInt(), image.width - 1));
     ref.read(pointYProvider.notifier).state = max(0, min(y.toInt(), image.height - 1));

@@ -20,6 +20,8 @@ class EditorImagePainter extends CustomPainter {
 
   final double zoomFraction;
 
+  final Size scaledSize;
+
   bool showPatches;
 
   bool showLock;
@@ -72,23 +74,17 @@ class EditorImagePainter extends CustomPainter {
   })  : image = imageData.uiImage,
         patchInfo = imageData.patchInfo,
         corruptedPatches =
-            showBadPatches ? CorruptPatch.findBadPatches(imageData.image, imageData.patchInfo) : List.empty();
+            showBadPatches ? CorruptPatch.findBadPatches(imageData.image, imageData.patchInfo) : List.empty(),
+        scaledSize = Size(imageData.image.width * zoomFraction, imageData.image.height * zoomFraction);
 
   @override
   void paint(Canvas canvas, Size size) {
-    // dev.log("texture: $_size");
-    // dev.log("canvas: [$width, $height], [${size.width}, ${size.height}]");
-
-    final scaledSize = Size(image.width * zoomFraction, image.height * zoomFraction);
-
     double x = (size.width - scaledSize.width) / 2;
     double y = (size.height - scaledSize.height) / 2;
 
     // background & texture
 
     canvas.save();
-
-    canvas.drawPaint(painter.fill..color = EDITOR_BACKGROUND_COLOR);
 
     canvas.translate(x, y);
 
