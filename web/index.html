@@ -11,6 +11,7 @@
             name="description"
             content="Easily create auto-resizing 9patch images online! The Draw 9patch editor lets you scale parts of bitmaps. Perfect for UIs. Try this cool tool now!"
         />
+        <meta name="google-site-verification" content="ttFbChL1tO4eOp00G6p8F9GKMTjJAwdoWxQW3OOWs6U" />
 
         <!-- iOS meta tags & icons -->
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -29,7 +30,20 @@
         </script>
         <!-- This script adds the flutter initialization JS code -->
         <script src="flutter.js" defer></script>
+
+        <!-- vercel analytics -->
         <script defer src="/_vercel/insights/script.js"></script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY0QP4T6YX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-MY0QP4T6YX");
+        </script>
 
         <style>
             #flutter_host {
