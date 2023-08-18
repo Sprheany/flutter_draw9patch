@@ -1,11 +1,11 @@
 {
-    "name": "9-Patch Editor",
-    "short_name": "9-Patch Editor",
+    "name": "Draw 9Patch Editor",
+    "short_name": "Draw 9Patch Editor",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Draw 9-patch tool.",
+    "description": "An online draw 9patch editor.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
