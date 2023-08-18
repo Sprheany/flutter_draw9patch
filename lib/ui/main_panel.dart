@@ -40,7 +40,9 @@ class _MainPanelState extends ConsumerState<MainPanel> {
                   SplitterWidget(
                     onSplitterChange: (value) {
                       value = min(
-                          max(value, PANEL_MIN_WIDTH + OPERATION_PANEL_WIDTH), constraints.maxWidth - PANEL_MIN_WIDTH);
+                        max(value, PANEL_MIN_WIDTH + OPERATION_PANEL_WIDTH),
+                        constraints.maxWidth - PANEL_MIN_WIDTH,
+                      );
                       editorWidthRatio =
                           (value - OPERATION_PANEL_WIDTH) / (constraints.maxWidth - OPERATION_PANEL_WIDTH);
                       setState(() {});
@@ -64,10 +66,10 @@ class OperationPanel extends ConsumerStatefulWidget {
   const OperationPanel({super.key});
 
   @override
-  ConsumerState<OperationPanel> createState() => _MenuWidgetState();
+  ConsumerState<OperationPanel> createState() => _OperationPanelState();
 }
 
-class _MenuWidgetState extends ConsumerState<OperationPanel> {
+class _OperationPanelState extends ConsumerState<OperationPanel> {
   final _fileNameController = TextEditingController();
 
   @override
@@ -95,12 +97,12 @@ class _MenuWidgetState extends ConsumerState<OperationPanel> {
                 ref.read(imageFileProvider.notifier).state = file;
               }
             },
-            child: const Text("选择图片"),
+            child: const Text("Select image"),
           ),
           const SizedBox(height: 48),
-          const Text("图片文件名："),
+          const Text("Image name:"),
           Text(
-            "保存的图片命名为：[图片文件名].9.png",
+            "When image is saved, name will be [name].9.png",
             style: Theme.of(context).textTheme.labelSmall!.copyWith(color: Colors.grey),
           ),
           const SizedBox(height: 8),
@@ -120,7 +122,7 @@ class _MenuWidgetState extends ConsumerState<OperationPanel> {
                 SaveFileAction.saveImage(data!.image, _fileNameController.text);
               }
             },
-            child: const Text("保存图片"),
+            child: const Text("Save image"),
           ),
         ],
       ),

@@ -44,14 +44,14 @@ class OpenFileWidget extends ConsumerWidget {
           }
         },
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 32),
+          padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 48),
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.background.withOpacity(0.8),
             borderRadius: BorderRadius.circular(8),
           ),
           child: ConstrainedBox(
             constraints: const BoxConstraints.tightForFinite(),
-            child: const Text("请选择图片或拖拽图片到这里"),
+            child: const Text("Select or drag image to get started"),
           ),
         ),
       ),

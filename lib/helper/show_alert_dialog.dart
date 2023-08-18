@@ -15,7 +15,7 @@ showAlertDialog({required String message, String? btnText}) {
           contentTextStyle: Theme.of(context).textTheme.bodyMedium,
           contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
           actions: [
-            ElevatedButton(
+            TextButton(
               onPressed: () => Navigator.of(context).pop(),
               child: Text(btnText ?? "OK"),
             ),
