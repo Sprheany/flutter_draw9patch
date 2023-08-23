@@ -27,7 +27,7 @@
     <link rel="icon" type="image/png" href="favicon.ico" />
 
     <link rel="manifest" href="manifest.json" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/output.css" />
 
     <!-- vercel analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
@@ -221,12 +221,12 @@
 
 <script>
     document.getElementById('toggle-theme').addEventListener('click', () => {
-        if (localStorage.theme == 'light') {
-            document.documentElement.classList.add('dark')
-            localStorage.theme = 'dark'
-        } else {
+        if (localStorage.theme == 'dark' || document.documentElement.classList.contains('dark')) {
             document.documentElement.classList.remove('dark')
             localStorage.theme = 'light'
+        } else {
+            document.documentElement.classList.add('dark')
+            localStorage.theme = 'dark'
         }
     });
 </script>
