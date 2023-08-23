@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/" />
+
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Nine Patch Generator: An online WYSIWYG tool to create 9 patch images</title>
+    <meta name="description"
+        content="Easily turn any bitmap into a 9 patch image with this awesome online WYSIWYG tool. Quickly make stretchable bitmap images for flexible UIs. Try this handy tool now!" />
+
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Nine Patch Generator" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.ico" />
+
+    <link rel="manifest" href="manifest.json" />
+
+    <script>
+        // The value below is injected by flutter build, do not touch.
+        var serviceWorkerVersion = null;
+    </script>
+    <!-- This script adds the flutter initialization JS code -->
+    <script src="flutter.js" defer></script>
+
+    <!-- vercel analytics -->
+    <script defer src="/_vercel/insights/script.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY0QP4T6YX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-MY0QP4T6YX");
+    </script>
+    <!-- Microsoft Clarity Analytics -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ij06qm8xjc");
+    </script>
+
+</head>
+
+<body>
+    <!-- Loading indicator -->
+    <div id="loading">
+        <style>
+            body {
+                inset: 0;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                position: fixed;
+            }
+
+            #loading {
+                align-items: center;
+                display: flex;
+                height: 100%;
+                justify-content: center;
+                width: 100%;
+            }
+
+            #loading img {
+                animation: 1s ease-in-out 0s infinite alternate breathe;
+                opacity: 0.66;
+                transition: opacity 0.4s;
+            }
+
+            #loading.main_done img {
+                opacity: 1;
+            }
+
+            #loading.init_done img {
+                animation: 0.33s ease-in-out 0s 1 forwards zooooom;
+                opacity: 0.05;
+            }
+
+            @keyframes breathe {
+                from {
+                    transform: scale(1);
+                }
+
+                to {
+                    transform: scale(0.95);
+                }
+            }
+
+            @keyframes zooooom {
+                from {
+                    transform: scale(1);
+                }
+
+                to {
+                    transform: scale(0);
+                }
+            }
+        </style>
+        <img src="icons/icon-192.png" alt="Loading editor..." />
+    </div>
+    <script>
+        window.addEventListener("load", function (ev) {
+            var loading = document.querySelector("#loading");
+            _flutter.loader
+                .loadEntrypoint({
+                    serviceWorker: {
+                        serviceWorkerVersion: serviceWorkerVersion,
+                    },
+                })
+                .then(function (engineInitializer) {
+                    loading.classList.add("main_done");
+                    return engineInitializer.initializeEngine();
+                })
+                .then(function (appRunner) {
+                    loading.classList.add("init_done");
+                    return appRunner.runApp();
+                })
+                .then(function () {
+                    window.setTimeout(function () {
+                        loading.remove();
+                    }, 200);
+                });
+        });
+
+        /**
+         * Redirects the user to the home page.
+         */
+        function close() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+
+</html>

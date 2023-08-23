@@ -1,11 +1,11 @@
 {
-    "name": "Draw 9Patch Editor",
-    "short_name": "Draw 9Patch Editor",
+    "name": "Nine Patch Generator",
+    "short_name": "Nine Patch Generator",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "An online draw 9patch editor.",
+    "description": "An online nine patch generator.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

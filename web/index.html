@@ -1,159 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <base href="$FLUTTER_BASE_HREF" />
 
-        <meta charset="UTF-8" />
-        <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
 
-        <title>Draw 9Patch Editor: Online WYSIWYG for Making Resizable Bitmap Images - 9PATCH.ONLINE</title>
-        <meta
-            name="description"
-            content="Easily create auto-resizing 9patch images online! The Draw 9patch editor lets you scale parts of bitmaps. Perfect for UIs. Try this cool tool now!"
-        />
-        <meta name="google-site-verification" content="ttFbChL1tO4eOp00G6p8F9GKMTjJAwdoWxQW3OOWs6U" />
+    <base href="/" />
 
-        <!-- iOS meta tags & icons -->
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <meta name="apple-mobile-web-app-title" content="Draw 9Patch Editor" />
-        <link rel="apple-touch-icon" href="icons/icon-192.png" />
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" href="favicon.ico" />
+    <title>Nine Patch Generator: An online WYSIWYG tool to create 9 patch images</title>
+    <meta name="description"
+        content="Easily turn any bitmap into a 9 patch image with this awesome online WYSIWYG tool. Quickly make stretchable bitmap images for flexible UIs. Try this handy tool now!" />
+    <meta name="keywords"
+        content="9patch,9patch chunk,9patch generator,Online WYSIWYG,Draw 9Patch Editor,NinePatch graphics,NinePatch image,NinePatch drawable,Making Resizable Bitmap Images,stretchable patches,stretchable images">
 
-        <link rel="manifest" href="manifest.json" />
+    <meta name="google-site-verification" content="ttFbChL1tO4eOp00G6p8F9GKMTjJAwdoWxQW3OOWs6U" />
 
-        <script>
-            // The value below is injected by flutter build, do not touch.
-            var serviceWorkerVersion = null;
-        </script>
-        <!-- This script adds the flutter initialization JS code -->
-        <script src="flutter.js" defer></script>
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Nine Patch Generator" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
 
-        <!-- vercel analytics -->
-        <script defer src="/_vercel/insights/script.js"></script>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY0QP4T6YX"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.ico" />
+
+    <link rel="manifest" href="manifest.json" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- vercel analytics -->
+    <script defer src="/_vercel/insights/script.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY0QP4T6YX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-MY0QP4T6YX");
+    </script>
+    <!-- Microsoft Clarity Analytics -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "ij06qm8xjc");
+    </script>
+
+    <script>
+        try {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark')
+            } else {
+                document.documentElement.classList.remove('dark')
             }
-            gtag("js", new Date());
+        } catch (_) { }
+    </script>
 
-            gtag("config", "G-MY0QP4T6YX");
-        </script>
+</head>
 
-        <style>
-            .logo {
-                width: 200px;
-                background: black;
-                padding: 5px 10px;
-                border-radius: 6px;
-                text-align: center;
-            }
-            .logo a {
-                color: white;
-                text-decoration: none;
-            }
-        </style>
-    </head>
-    <body>
-        <h2 class="logo">
-            <a href="/" title="9PATCH.ONLINE">9PATCH.ONLINE</a>
+<body class="antialiased text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-900 px-4 md:px-6">
+    <header
+        class="relative py-4 lg:py-6 flex items-center justify-between text-slate-700 font-semibold text-sm leading-6 dark:text-slate-200">
+        <h2 class="flex w-auto items-center space-x-2 text-slate-900 dark:text-white">
+            <img class="w-auto h-6" src="icons/icon-192.png" alt="logo"></img>
+            <a class="text-lg " href="./">9PATCH.ONLINE</a>
         </h2>
-        <h1>Draw 9Patch Editor: Online WYSIWYG for Making Resizable Bitmap Images - 9PATCH.ONLINE</h1>
-        <h2>Welcome to the online draw 9patch editor. <a href="editor.html">Try it now!</a></h2>
-        <p>
-            The Draw 9patch editor is an online WYSIWYG tool similar to the one in Android Studio. The tool lets you
-            create bitmap images that automatically resize to accommodate the contents of the view and the size of the
-            screen. You can scale selected parts of the image horizontally or vertically based on indicators drawn
-            within the image.
-        </p>
 
-        <img src="images/fig1.png" alt="" width="80%" />
-        <p class="img-caption"><strong>Figure 1.</strong> Draw 9patch editor displaying a NinePatch image.</p>
-
-        <h2>Getting Started</h2>
-        <p>
-            Follow these steps to create a NinePatch graphic using the Draw 9patch editor. You'll need an image that
-            you'd like to create a NinePatch image from.
-        </p>
-
-        <ol>
-            <li>
-                Click the <strong>Select image</strong> button or drag the image into the editor that you want to create
-                a NinePatch image from.
-                <p>
-                    In the workspace that opens, the center pane is your drawing area, where you can edit the lines for
-                    the stretchable patches and content area. The right pane is the preview area, where you can preview
-                    your graphic when stretched.
-                </p>
-            </li>
-            <li>
-                Change filename for your NinePatch image. Your image will be saved with the
-                <code translate="no" dir="ltr">.9.png</code> file extension.
-            </li>
-            <li>
-                Click within the 1-pixel perimeter to draw the lines that define the stretchable patches and (optional)
-                the content area.
-            </li>
-            <li>When done, click the <strong>Save image</strong> button to save your changes.</li>
-        </ol>
-
-        <p>
-            To make sure that your NinePatch graphics scale down properly, verify that any stretchable regions are at
-            least 2x2 pixels in size. Otherwise, those regions may disappear when scaled down. To avoid interpolation
-            during scaling that may cause the color at the boundaries to change, provide 1 pixel of extra safe space in
-            the graphics before and after stretchable regions.
-        </p>
-
-        <p class="note">
-            <strong>Note:</strong> A normal PNG file (<code translate="no" dir="ltr">*.png</code>) is loaded with an
-            empty 1-pixel border added around the image. You can draw the stretchable patches and content area within
-            the border. A previously saved NinePatch file (<code translate="no" dir="ltr">*.9.png</code>) is loaded
-            as-is, with no drawing area added because it already exists.
-        </p>
-
-        <img src="images/fig2.png" alt="" width="80%" />
-        <p class="img-caption">
-            <strong>Figure 2.</strong> A NinePatch image in editor showing content, patches, and bad patches.
-        </p>
-        <h2>Optional Controls</h2>
-        <ul>
-            <li><strong>Zoom</strong>: Adjust the zoom level of the graphic in the drawing area.</li>
-            <li><strong>Patch scale</strong>: Adjust the scale of the images in the preview area.</li>
-            <li><strong>Show lock</strong>: Visualize the non-drawable area of the graphic on mouse-over.</li>
-            <li>
-                <strong>Show patches</strong>: Preview the pink stretchable patches in the drawing area. Pink indicates
-                a stretchable patch, as shown in figure 2.
-            </li>
-            <li>
-                <strong>Show content</strong>: Highlight the content area in the preview images. Purple indicates the
-                area where content is allowed, as shown in figure 2.
-            </li>
-            <li>
-                <strong>Show bad patches</strong>: Adds a red border around patch areas that may produce artifacts in
-                the graphic when stretched, as shown in figure 2. If you eliminate all bad patches, you will maintain
-                the visual coherence of your stretched image.
-            </li>
-        </ul>
-        <div class="footer">
-            <p>
-                For an introduction to NinePatch graphics and how they work, read
-                <a
-                    href="https://developer.android.com/guide/topics/graphics/2d-graphics#nine-patch"
-                    target="_blank"
-                    rel="noopener norefferrer"
-                    >NinePatch drawables</a
-                >.
-            </p>
-            <p>
-                © 2023 <a href="https://www.9patch.online/" title="9PATCH.ONLINE">9PATCH.ONLINE</a>. All rights
-                reserved.
-            </p>
+        <div class="flex items-center ml-6 pl-6">
+            <button title="Toggle theme" type="button" id="toggle-theme">
+                <span class="dark:hidden">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="w-6 h-6">
+                        <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" class="stroke-slate-400 dark:stroke-slate-500">
+                        </path>
+                        <path
+                            d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836"
+                            class="stroke-slate-400 dark:stroke-slate-500"></path>
+                    </svg>
+                </span>
+                <span class="hidden dark:inline">
+                    <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z"
+                            class="fill-transparent"></path>
+                        <path
+                            d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z"
+                            class="fill-slate-400 dark:fill-slate-500"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z"
+                            class="fill-slate-400 dark:fill-slate-500"></path>
+                    </svg>
+                </span>
+            </button>
         </div>
-    </body>
+    </header>
+    <div class="max-w-7xl w-auto mx-auto">
+        <div class="mx-auto max-w-5xl pt-20">
+            <h1
+                class="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl !leading-tight tracking-tight text-center dark:text-white">
+                Nine Patch Generator - An online WYSIWYG tool to create 9 patch images.
+            </h1>
+            <p class="mt-8 text-lg text-slate-600 text-center max-w-3xl mx-auto dark:text-slate-400">
+                The Nine Patch Generator is an online WYSIWYG tool similar to the one included in Android Studio. The
+                tool lets you create bitmap images that automatically resize to accommodate the contents of the view and
+                the size of the screen. You can scale selected parts of the image horizontally or vertically based on
+                indicators drawn within the image.
+            </p>
+            <div class="mt-10 flex justify-center">
+                <a class="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-bold text-xl h-12 px-8 sm:w-auto rounded-lg w-full flex items-center justify-center dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400"
+                    href="editor/index.html">Try it now!</a>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap pt-20">
+            <div class="lg:w-1/2">
+                <h2 class="text-slate-900 font-bold text-2xl dark:text-white">
+                    How to use
+                </h2>
+                <p class="pt-4 text-slate-600 dark:text-slate-400">
+                    Follow these steps to create a NinePatch graphic using the Nine Patch Generator. You'll need an
+                    image that you'd like to create a NinePatch image from.
+                </p>
+                <ol class="pt-4 px-8 space-y-2 list-decimal list-outside">
+                    <li class="">
+                        Click the <strong>Select image</strong> button or drag the image into the editor that you want
+                        to create a NinePatch image from.
+                        <p class="py-2">
+                            In the workspace that opens, the center pane is your drawing area, where you can edit the
+                            lines for the stretchable patches and content area. The right pane is the preview area,
+                            where you can preview your graphic when stretched.
+                        </p>
+                    </li>
+                    <li>
+                        Change image name for your NinePatch image. Your image will be saved with the
+                        <span class="font-mono font-semibold" dir="ltr">.9.png</span> file extension.
+                    </li>
+                    <li>
+                        Click within the 1-pixel perimeter to draw the lines that define the stretchable patches and
+                        (optional) the content area.
+                    </li>
+                    <li>When done, click the <strong>Save image</strong> button to save your changes.</li>
+                </ol>
+            </div>
+            <div class="lg:w-1/2">
+                <img class="mt-6 lg:mt-14 shadow-lg rounded-lg" src="images/fig2.png" alt="Figure 1">
+                <p class="pt-2 text-center img-caption">
+                    <strong>Figure 1.</strong> Nine Patch Generator displaying a NinePatch image.
+                </p>
+                </d>
+            </div>
+
+            <p class="pt-8">
+                To make sure that your NinePatch graphics scale down properly, verify that any stretchable regions are
+                at least 2x2 pixels in size. Otherwise, those regions may disappear when scaled down. To avoid
+                interpolation during scaling that may cause the color at the boundaries to change, provide 1 pixel of
+                extra safe space in the graphics before and after stretchable regions.
+            </p>
+            <p class="pt-4">
+                <strong>Note:</strong> A normal PNG file (<span class="font-mono font-semibold" dir="ltr">*.png</span>)
+                is loaded with an empty 1-pixel border added around the image. You can draw the stretchable patches and
+                content area within the border. A previously saved NinePatch file (<span class="font-mono font-semibold"
+                    dir="ltr">*.9.png</span>) is loaded as-is, with no drawing area added because it already exists.
+            </p>
+
+            <div class="flex flex-wrap pt-8">
+                <div class="lg:w-1/2">
+                    <h2 class="text-slate-900 font-bold text-2xl dark:text-white">Optional controls</h2>
+                    <ul class="pt-4 px-8 space-y-2 list-disc">
+                        <li><strong>Zoom</strong>: Adjust the zoom level of the graphic in the drawing area.</li>
+                        <li><strong>Patch scale</strong>: Adjust the scale of the images in the preview area.</li>
+                        <li><strong>Show lock</strong>: Visualize the non-drawable area of the graphic on mouse-over.
+                        </li>
+                        <li>
+                            <strong>Show patches</strong>: Preview the pink stretchable patches in the drawing area.
+                            Pink indicates a stretchable patch, as shown in figure 2.
+                        </li>
+                        <li>
+                            <strong>Show content</strong>: Highlight the content area in the preview images. Purple
+                            indicates the area where content is allowed, as shown in figure 2.
+                        </li>
+                        <li>
+                            <strong>Show bad patches</strong>: Adds a red border around patch areas that may produce
+                            artifacts in the graphic when stretched, as shown in figure 2. If you eliminate all bad
+                            patches, you will maintain the visual coherence of your stretched image.
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2">
+                    <img class="mt-6 lg:mt-14 shadow-lg rounded-lg" src="images/fig2.png" alt="Figure 2">
+                    <p class="pt-2 text-center">
+                        <strong>Figure 2.</strong> A NinePatch image in editor showing content, patches, and bad
+                        patches.
+                    </p>
+                    </d>
+                </div>
+            </div>
+            <footer class="mt-24 mb-4 md:mb-6 space-y-2 mx-auto text-center">
+                <p>
+                    Links:
+                    <a class="underline hover:text-sky-500 dark:hover:text-slate-300"
+                        href="https://developer.android.com/guide/topics/graphics/2d-graphics#nine-patch"
+                        target="_blank" rel="noopener norefferrer">NinePatch</a>
+                    <a class="underline hover:text-sky-500 dark:hover:text-slate-300"
+                        href="https://developer.android.com/studio/write/draw9patch" target="_blank"
+                        rel="noopener norefferrer">Draw9Patch</a>
+                </p>
+                <p>
+                    © 2023 <a class="underline hover:text-sky-500 dark:hover:text-slate-300"
+                        href="https://www.9patch.online/" title="9PATCH.ONLINE">9PATCH.ONLINE</a>. All rights
+                    reserved.
+                </p>
+            </footer>
+</body>
+
+<script>
+    document.getElementById('toggle-theme').addEventListener('click', () => {
+        if (localStorage.theme == 'light') {
+            document.documentElement.classList.add('dark')
+            localStorage.theme = 'dark'
+        } else {
+            document.documentElement.classList.remove('dark')
+            localStorage.theme = 'light'
+        }
+    });
+</script>
+
 </html>

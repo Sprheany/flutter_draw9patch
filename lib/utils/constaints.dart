@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-const String APP_TITLE = "Draw 9Patch Editor";
+const String APP_TITLE = "Nine Patch Generator";
 
 const double PANEL_MIN_WIDTH = 60;
 
