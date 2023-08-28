@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_draw9patch/utils/constaints.dart';
 import 'package:flutter_draw9patch/window_border.dart';
 
-class DesktopAppBar extends AppBar {
-  DesktopAppBar({super.key})
+class TopAppBar extends AppBar {
+  TopAppBar({super.key})
       : super(
           title: const Text(APP_TITLE),
           centerTitle: Platform.isWindows ? false : true,

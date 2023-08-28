@@ -5,8 +5,8 @@ import 'dart:js' as js;
 import 'package:flutter/material.dart';
 import 'package:flutter_draw9patch/utils/constaints.dart';
 
-class WebAppBar extends AppBar {
-  WebAppBar({
+class TopAppBar extends AppBar {
+  TopAppBar({
     super.key,
   }) : super(
           title: const Text(APP_TITLE),
