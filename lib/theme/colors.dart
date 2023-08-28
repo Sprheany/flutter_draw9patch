@@ -5,11 +5,6 @@ import 'package:flutter/painting.dart';
 final int BLACK_TICK = const Color.fromARGB(255, 0, 0, 0).value;
 final int RED_TICK = const Color.fromARGB(255, 255, 0, 0).value;
 
-const Color DARK_BLUE = Color(0xff202737);
-
-const Color BACKGROUND_COLOR = Color.fromARGB(255, 238, 238, 238);
-const Color EDITOR_BACKGROUND_COLOR = Color.fromARGB(255, 166, 166, 166);
-
 const Color CORRUPTED_COLOR = Color.fromARGB(179, 255, 0, 0);
 const Color LOCK_COLOR = Color.fromARGB(179, 0, 0, 0);
 const Color STRIPES_COLOR = Color.fromARGB(128, 255, 0, 0);

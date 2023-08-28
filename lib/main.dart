@@ -3,7 +3,8 @@ import 'dart:io';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_draw9patch/theme/colors.dart';
+import 'package:flutter_draw9patch/provider/theme_provider.dart';
+import 'package:flutter_draw9patch/theme/color_schemes.g.dart';
 import 'package:flutter_draw9patch/ui/app_screen.dart';
 import 'package:flutter_draw9patch/utils/constaints.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -34,18 +35,18 @@ void main() async {
   }
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       navigatorKey: NavigatorProvider.navigatorKey,
       title: APP_TITLE,
       theme: ThemeData(
         useMaterial3: true,
-        appBarTheme: const AppBarTheme(backgroundColor: BACKGROUND_COLOR),
+        colorScheme: ref.watch(themeProvider) ? darkColorScheme : lightColorScheme,
         sliderTheme: const SliderThemeData(
           trackHeight: 2,
           thumbShape: RoundSliderThumbShape(enabledThumbRadius: 6),

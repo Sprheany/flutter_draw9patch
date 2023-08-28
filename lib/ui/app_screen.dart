@@ -19,7 +19,7 @@ class _AppScreenState extends ConsumerState<AppScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TopAppBar(),
+      appBar: TopAppBar(ref: ref),
       body: DropTarget(
         onDragEntered: (_) => setState(() {
           showDragMask = true;

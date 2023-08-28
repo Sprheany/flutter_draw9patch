@@ -78,7 +78,7 @@ class _OperationPanelState extends ConsumerState<OperationPanel> {
         ),
         const SizedBox(height: 2),
         Container(
-          color: Colors.grey.withOpacity(0.3),
+          color: Theme.of(context).colorScheme.surfaceVariant,
           padding: const EdgeInsets.all(8),
           child: SelectableText(
             patchInfo?.patches.join(",\n") ?? "",

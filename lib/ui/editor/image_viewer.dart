@@ -5,7 +5,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_draw9patch/provider/action_provider.dart';
 import 'package:flutter_draw9patch/provider/image_data_provider.dart';
-import 'package:flutter_draw9patch/theme/colors.dart';
 import 'package:flutter_draw9patch/ui/editor/editor_image_painter.dart';
 import 'package:flutter_draw9patch/ui/patch_info.dart';
 import 'package:flutter_draw9patch/utils/constaints.dart';
@@ -69,7 +68,7 @@ class _ImageViewerState extends ConsumerState<ImageViewer> {
   Widget build(BuildContext context) {
     final imageData = ref.watch(createImageDataProvider).valueOrNull;
     if (imageData == null) {
-      return Container(color: EDITOR_BACKGROUND_COLOR);
+      return const SizedBox.shrink();
     }
 
     image = imageData.image;

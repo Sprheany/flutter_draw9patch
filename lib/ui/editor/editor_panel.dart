@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_draw9patch/provider/file_actions.dart';
 import 'package:flutter_draw9patch/provider/image_data_provider.dart';
-import 'package:flutter_draw9patch/theme/colors.dart';
 import 'package:flutter_draw9patch/ui/editor/image_viewer.dart';
 import 'package:flutter_draw9patch/widgets/two_directions_scroll_view.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,7 +12,7 @@ class EditorPanel extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final data = ref.watch(createImageDataProvider).valueOrNull;
     return Container(
-      color: EDITOR_BACKGROUND_COLOR,
+      color: Theme.of(context).colorScheme.surfaceVariant,
       constraints: const BoxConstraints.expand(),
       child: data != null
           ? TwoDirectionsScrollView(
