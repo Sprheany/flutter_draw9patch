@@ -184,6 +184,11 @@ class PatchInfo {
     return P(fixed, patches, startWithPatch);
   }
 
+  List<Rect> get stretchableArea => patches.map((e) => e.translate(-1, -1)).toList();
+
+  String get contentPadding =>
+      "left: ${horizontalPadding.first}, top: ${verticalPadding.first}, right: ${horizontalPadding.second}, bottom: ${verticalPadding.second}";
+
   @override
   String toString() {
     return """PatchInfo{

@@ -41,7 +41,7 @@ class _OperationPanelState extends ConsumerState<OperationPanel> {
           icon: const Icon(Icons.image_outlined),
           label: const Text("Select image"),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 24),
         FilledButton.tonalIcon(
           onPressed: () {
             final data = ref.read(createImageDataProvider).valueOrNull;
@@ -52,7 +52,7 @@ class _OperationPanelState extends ConsumerState<OperationPanel> {
           icon: const Icon(Icons.save_alt_outlined),
           label: const Text("Save image"),
         ),
-        const SizedBox(height: 32),
+        const SizedBox(height: 48),
         const Text(
           "Image name:",
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -71,17 +71,37 @@ class _OperationPanelState extends ConsumerState<OperationPanel> {
           style: Theme.of(context).textTheme.bodySmall,
           onChanged: (value) => ref.read(fileNameProvider.notifier).state = value,
         ),
-        const SizedBox(height: 32),
+        const SizedBox(height: 48),
         const Text(
-          "Patches:",
+          "Stretchable area:",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 2),
         Container(
-          color: Theme.of(context).colorScheme.surfaceVariant,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surfaceVariant,
+            borderRadius: BorderRadius.circular(4),
+          ),
           padding: const EdgeInsets.all(8),
           child: SelectableText(
-            patchInfo?.patches.join(",\n") ?? "",
+            patchInfo?.stretchableArea.join(",\n") ?? "",
+            style: Theme.of(context).textTheme.labelSmall,
+          ),
+        ),
+        const SizedBox(height: 16),
+        const Text(
+          "Content padding:",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 2),
+        Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surfaceVariant,
+            borderRadius: BorderRadius.circular(4),
+          ),
+          padding: const EdgeInsets.all(8),
+          child: SelectableText(
+            patchInfo?.contentPadding ?? "",
             style: Theme.of(context).textTheme.labelSmall,
           ),
         ),
