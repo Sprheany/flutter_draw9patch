@@ -35,6 +35,21 @@ extension ImageExt on img.Image {
     return buffer;
   }
 
+  img.Image removeNinePatchBorder() {
+    img.Image buffer = img.Image(
+      width: width - 2,
+      height: height - 2,
+      numChannels: 4,
+    );
+
+    for (var p in buffer) {
+      final color = getPixel(p.x + 1, p.y + 1);
+      buffer.setPixel(p.x, p.y, color);
+    }
+
+    return buffer;
+  }
+
   void ensure9Patch() {
     for (int i = 0; i < width; i++) {
       int color = getPixel(i, 0).color;

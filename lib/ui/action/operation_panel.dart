@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_draw9patch/provider/action_provider.dart';
 import 'package:flutter_draw9patch/provider/file_actions.dart';
 import 'package:flutter_draw9patch/provider/image_data_provider.dart';
 import 'package:flutter_draw9patch/ui/patch_info.dart';
@@ -46,11 +47,27 @@ class _OperationPanelState extends ConsumerState<OperationPanel> {
           onPressed: () {
             final data = ref.read(createImageDataProvider).valueOrNull;
             if (data?.image != null) {
-              SaveFileAction.saveImage(data!.image, _fileNameController.text);
+              if (ref.read(compiledImageProvider)) {
+                SaveFileAction.saveImageCompiled(data!.image, _fileNameController.text);
+              } else {
+                SaveFileAction.saveImage(data!.image, _fileNameController.text);
+              }
             }
           },
           icon: const Icon(Icons.save_alt_outlined),
           label: const Text("Save image"),
+        ),
+        const SizedBox(height: 2),
+        CheckboxListTile(
+          controlAffinity: ListTileControlAffinity.leading,
+          value: ref.watch(compiledImageProvider),
+          onChanged: (value) {
+            ref.read(compiledImageProvider.notifier).state = value!;
+          },
+          title: Text(
+            "Save as a compiled image (create 'npTc' chunk)",
+            style: Theme.of(context).textTheme.labelSmall,
+          ),
         ),
         const SizedBox(height: 48),
         const Text(

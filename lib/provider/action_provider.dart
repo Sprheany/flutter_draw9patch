@@ -13,5 +13,7 @@ final showContentProvider = StateProvider((ref) => false);
 
 final showBadPatchesProvider = StateProvider((ref) => false);
 
+final compiledImageProvider = StateProvider((ref) => false);
+
 final pointXProvider = StateProvider((ref) => 0);
 final pointYProvider = StateProvider((ref) => 0);
