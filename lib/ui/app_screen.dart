@@ -1,9 +1,9 @@
 import 'package:desktop_drop/desktop_drop.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_draw9patch/provider/image_data_provider.dart';
 import 'package:flutter_draw9patch/theme/colors.dart';
-import 'package:flutter_draw9patch/ui/appbar/desktop_appbar.dart'
-    if (dart.library.js) 'package:flutter_draw9patch/ui/appbar/web_appbar.dart';
+import 'package:flutter_draw9patch/ui/appbar/desktop_appbar.dart';
 import 'package:flutter_draw9patch/ui/main_panel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -19,7 +19,7 @@ class _AppScreenState extends ConsumerState<AppScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TopAppBar(ref: ref),
+      appBar: !kIsWeb ? TopAppBar(ref: ref) : null,
       body: DropTarget(
         onDragEntered: (_) => setState(() {
           showDragMask = true;
@@ -29,7 +29,7 @@ class _AppScreenState extends ConsumerState<AppScreen> {
         }),
         onDragDone: (details) {
           if (details.files.isNotEmpty) {
-            ref.read(imageFileProvider.notifier).state = details.files.first;
+            ref.read(imageFileProvider.notifier).update(details.files.first);
           }
         },
         child: Stack(

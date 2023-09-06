@@ -1,6 +1,6 @@
 {
-    "name": "Nine Patch Generator",
-    "short_name": "Nine Patch Generator",
+    "name": "9 Patch Editor",
+    "short_name": "9 Patch Editor",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -36,7 +36,7 @@ class _OperationPanelState extends ConsumerState<OperationPanel> {
           onPressed: () async {
             final file = await OpenFileAction.selectImage();
             if (file != null) {
-              ref.read(imageFileProvider.notifier).state = file;
+              ref.read(imageFileProvider.notifier).update(file);
             }
           },
           icon: const Icon(Icons.image_outlined),
@@ -86,7 +86,7 @@ class _OperationPanelState extends ConsumerState<OperationPanel> {
             border: OutlineInputBorder(),
           ),
           style: Theme.of(context).textTheme.bodySmall,
-          onChanged: (value) => ref.read(fileNameProvider.notifier).state = value,
+          onChanged: (value) => ref.read(fileNameProvider.notifier).update(value),
         ),
         const SizedBox(height: 48),
         const Text(

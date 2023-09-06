@@ -4,11 +4,12 @@ bool isDarkMode() {
   return ThemeMode.system == ThemeMode.dark;
 }
 
-// void setDarkMode(bool value) {
-// }
+class AppScope extends StatelessWidget {
+  final Widget child;
+  const AppScope({super.key, required this.child});
 
-// bool toggleTheme() {
-//   bool mode = isDarkMode() ? false : true;
-//   setDarkMode(mode);
-//   return mode;
-// }
+  @override
+  Widget build(BuildContext context) {
+    return child;
+  }
+}

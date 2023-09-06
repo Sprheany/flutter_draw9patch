@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:ui' as ui;
+import 'dart:ui';
 
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/rendering.dart';
@@ -7,23 +7,34 @@ import 'package:flutter_draw9patch/helper/show_alert_dialog.dart';
 import 'package:flutter_draw9patch/ui/patch_info.dart';
 import 'package:flutter_draw9patch/utils/constaints.dart';
 import 'package:flutter_draw9patch/utils/image_ext.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image/image.dart' as img;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'image_data_provider.g.dart';
 
-final imageFileProvider = StateProvider<XFile?>((ref) {
-  return null;
-});
+@riverpod
+class ImageFile extends _$ImageFile {
+  @override
+  XFile? build() {
+    return null;
+  }
 
-final fileNameProvider = StateProvider<String>((ref) {
-  return "";
-});
+  void update(XFile file) => state = file;
+}
+
+@riverpod
+class FileName extends _$FileName {
+  @override
+  String build() {
+    return "";
+  }
+
+  void update(String name) => state = name;
+}
 
 class ImageData {
   final img.Image image;
-  final ui.Image uiImage;
+  final Image uiImage;
   final PatchInfo patchInfo;
   ImageData({
     required this.image,
@@ -56,7 +67,7 @@ class CreateImageData extends _$CreateImageData {
       image.ensure9Patch();
       fileName = fileName.replaceRange(fileName.lastIndexOf(EXTENSION_9PATCH), null, "");
     }
-    ref.read(fileNameProvider.notifier).state = fileName;
+    ref.read(fileNameProvider.notifier).update(fileName);
     final uiImage = await image.convertToFlutterUi();
     return ImageData(
       image: image,
@@ -76,16 +87,16 @@ class CreateImageData extends _$CreateImageData {
 @riverpod
 class CreateTexture extends _$CreateTexture {
   @override
-  Future<ui.Image> build() async {
+  Future<Image> build() async {
     return await loadImageByProvider(const AssetImage("images/checker.png"));
   }
 }
 
-Future<ui.Image> loadImageByProvider(
+Future<Image> loadImageByProvider(
   ImageProvider provider, {
   ImageConfiguration config = ImageConfiguration.empty,
 }) async {
-  final Completer<ui.Image> completer = Completer();
+  final Completer<Image> completer = Completer();
 
   late ImageStreamListener listener;
 
@@ -93,7 +104,7 @@ Future<ui.Image> loadImageByProvider(
   final ImageStream stream = provider.resolve(ImageConfiguration.empty);
 
   listener = ImageStreamListener((ImageInfo frame, bool sync) {
-    final ui.Image image = frame.image;
+    final Image image = frame.image;
     completer.complete(image);
     stream.removeListener(listener);
   });

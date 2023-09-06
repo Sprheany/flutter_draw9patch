@@ -39,7 +39,7 @@ class OpenFileWidget extends ConsumerWidget {
         onTap: () async {
           final file = await OpenFileAction.selectImage();
           if (file != null) {
-            ref.read(imageFileProvider.notifier).state = file;
+            ref.read(imageFileProvider.notifier).update(file);
           }
         },
         child: Container(

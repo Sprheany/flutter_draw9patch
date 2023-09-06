@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_draw9patch/helper/theme_helper.dart'
+    if (dart.library.js) 'package:flutter_draw9patch/helper/theme_helper_web.dart';
 import 'package:flutter_draw9patch/provider/theme_provider.dart';
 import 'package:flutter_draw9patch/theme/color_schemes.g.dart';
 import 'package:flutter_draw9patch/ui/app_screen.dart';
@@ -16,7 +18,7 @@ void main() async {
     await windowManager.ensureInitialized();
   }
 
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(const ProviderScope(child: AppScope(child: MyApp())));
 
   if (!kIsWeb) {
     // Add this code below
