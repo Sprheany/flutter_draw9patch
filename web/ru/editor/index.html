@@ -71,6 +71,12 @@
                 <ul class="flex items-center gap-x-8">
                     <li><a class="hover:text-sky-500" href="/ru/">Главная</a></li>
                     <li><a class="hover:text-sky-500" href="/ru/editor/">Редактор</a></li>
+                    <li>
+                        <select class="bg-inherit" onchange="window.location.href=this.value">
+                            <option value="/editor/">English</option>
+                            <option value="/ru/editor/" selected>Русский язык</option>
+                        </select>
+                    </li>
                 </ul>
             </nav>
             <div class="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">

@@ -86,6 +86,12 @@
                 <ul class="flex items-center gap-x-8">
                     <li><a class="hover:text-sky-500" href="/ru/">Главная</a></li>
                     <li><a class="hover:text-sky-500" href="/ru/editor/">Редактор</a></li>
+                    <li>
+                        <select class="bg-inherit" onchange="window.location.href=this.value">
+                            <option value="/">English</option>
+                            <option value="/ru/" selected>Русский язык</option>
+                        </select>
+                    </li>
                 </ul>
             </nav>
             <div class="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
@@ -228,6 +234,10 @@
                             title="9PATCH.ONLINE">9PATCH.ONLINE</a>.
                         Все
                         права защищены.
+                    </p>
+                    <p class="space-x-3">
+                        <a class="text-sky-500 hover:text-sky-700" target="_self" href="/">English</a>
+                        <a class="text-sky-500 hover:text-sky-700" target="_self" href="/ru/">Русский язык</a>
                     </p>
                 </footer>
         </div>
