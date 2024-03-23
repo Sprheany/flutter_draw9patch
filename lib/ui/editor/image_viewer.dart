@@ -3,6 +3,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_draw9patch/provider/action_provider.dart';
 import 'package:flutter_draw9patch/provider/image_data_provider.dart';
 import 'package:flutter_draw9patch/ui/editor/editor_image_painter.dart';
@@ -195,7 +196,7 @@ class _ImageViewerState extends ConsumerState<ImageViewer> {
     setState(() {});
   }
 
-  void updateDrawMode(RawKeyEvent event) {
+  void updateDrawMode(HardwareKeyboard event) {
     if (event.isShiftPressed) {
       currentMode = DrawMode.ERASE;
     } else if (event.isControlPressed) {
