@@ -1,16 +1,25 @@
-# flutter_draw9patch
+# 9 Patch Editor
 
-Draw 9-patch tool.
+A tool that provides similar features to editing 9 patch images in Android Studio.
 
-## Getting Started
+![Hero Image](web/images/hero.webp)
 
-This project is a starting point for a Flutter application.
+## Environment
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```console
+➜  ~ % flutter --version
+Flutter 3.19.3 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision ba39319843 (2 weeks ago) • 2024-03-07 15:22:21 -0600
+Engine • revision 2e4ba9c6fb
+Tools • Dart 3.3.1 • DevTools 2.31.1
+➜  ~ % flutter doctor
+Doctor summary (to see all details, run flutter doctor -v):
+[✓] Flutter (Channel stable, 3.19.3, on macOS 13.6.5 22G621 darwin-x64, locale zh-Hans-CN)
+[✓] Android toolchain - develop for Android devices (Android SDK version 34.0.0)
+[✓] Xcode - develop for iOS and macOS (Xcode 15.2)
+[✓] Chrome - develop for the web
+[✓] Android Studio (version 2023.2)
+[✓] VS Code (version 1.87.2)
+[✓] Connected device (2 available)
+[✓] HTTP Host Availability
+```
