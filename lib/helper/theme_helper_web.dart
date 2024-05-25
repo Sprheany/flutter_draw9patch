@@ -1,15 +1,9 @@
+import 'dart:js_interop';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_draw9patch/provider/theme_provider.dart';
+import 'package:flutter_draw9patch/helper/js/helper.dart';
+import 'package:flutter_draw9patch/helper/js/theme_state_manager.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:js/js.dart';
-
-// Calls invoke JavaScript `isDarkMode()`
-@JS("isDarkMode")
-external bool isDarkMode();
-
-// JavaScript code may now call `functionName()` or `window.functionName()`
-@JS('switchThemeDart')
-external set _switchThemeFromJs(void Function(bool value) f);
 
 class AppScope extends ConsumerStatefulWidget {
   final Widget child;
@@ -20,12 +14,13 @@ class AppScope extends ConsumerStatefulWidget {
 }
 
 class _MyAppState extends ConsumerState<AppScope> {
+  late final ThemeStateManager _state;
   @override
   void initState() {
     super.initState();
-    _switchThemeFromJs = allowInterop((bool value) {
-      ref.read(themeProvider.notifier).state = value;
-    });
+    _state = ThemeStateManager(ref: ref);
+    final export = createJSInteropWrapper(_state);
+    broadcastAppEvent("flutter-initialized", export);
   }
 
   @override
